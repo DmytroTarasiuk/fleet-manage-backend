@@ -1,8 +1,21 @@
-var http = require("http");
+const express = require("express");
+const cors = require("cors");
 
-http
-  .createServer(function (request, response) {
-    response.writeHead(200, { "Content-Type": "text/plain" });
-    response.end("Hello World");
-  })
-  .listen(process.env.PORT || 5001);
+const app = express();
+const port = 3000;
+
+app.use(cors());
+
+app.get("/test", async (req, res) => {
+  res.send("Test");
+});
+
+app.get("/", async (req, res) => {
+  res.send("Home");
+});
+
+const server = app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
+module.exports = { app, server };
