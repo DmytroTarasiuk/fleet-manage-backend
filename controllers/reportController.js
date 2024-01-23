@@ -22,6 +22,23 @@ exports.getReports = async (req, res) => {
   }
 };
 
+exports.getReportById = async (req, res) => {
+  const reportId = req.params.id;
+
+  try {
+    const report = await Report.findById(reportId);
+
+    if (report) {
+      res.status(200).json(report);
+    } else {
+      res.status(404).json({ error: "Report not found" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
 exports.deleteReport = async (req, res) => {
   const reportId = req.params.id;
 
