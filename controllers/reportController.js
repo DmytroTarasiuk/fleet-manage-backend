@@ -1,4 +1,4 @@
-const Report = require('../models/Report');
+const Report = require("../models/Report");
 
 exports.createReport = async (req, res) => {
   try {
@@ -32,6 +32,30 @@ exports.deleteReport = async (req, res) => {
       res
         .status(200)
         .json({ message: "Report deleted successfully", deletedReport });
+    } else {
+      res.status(404).json({ error: "Report not found" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+exports.editReport = async (req, res) => {
+  const reportId = req.params.id;
+  const updatedData = req.body;
+
+  try {
+    const updatedReport = await Report.findByIdAndUpdate(
+      reportId,
+      updatedData,
+      { new: true }
+    );
+
+    if (updatedReport) {
+      res
+        .status(200)
+        .json({ message: "Report updated successfully", updatedReport });
     } else {
       res.status(404).json({ error: "Report not found" });
     }
