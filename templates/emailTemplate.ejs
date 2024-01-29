@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      h3 {
+        color: #333333;
+      }
+
+      h2 {
+        color: #4caf50;
+      }
+
+      p {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h3>Rozliczenie Dmytro Tarasiuk</h3>
+      <table>
+        <tr>
+          <th>Obrót Bolt</th>
+          <th>Gotówka Bolt</th>
+          <th>Bonus Bolt</th>
+        </tr>
+        <tr>
+          <td><%= obrotBolt %></td>
+          <td><%= gotowkaBolt %></td>
+          <td><%= bonusBolt %></td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <th>Obrót Uber</th>
+          <th>Gotówka Uber</th>
+          <th>Bonus Uber</th>
+        </tr>
+        <tr>
+          <td><%= obrotUber %></td>
+          <td><%= gotowkaUber %></td>
+          <td><%= bonusUber %></td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <th>Obrót Freenow</th>
+          <th>Gotówka Freenow</th>
+          <th>Bonus Freenow</th>
+        </tr>
+        <tr>
+          <td><%= obrotFn %></td>
+          <td><%= gotowkaFn %></td>
+          <td><%= bonusFn %></td>
+        </tr>
+      </table>
+
+      <p>VAT: <%= vat %></p>
+      <p>Prowizja Kartnel: <%= prowizja %></p>
+      <p>Wynajem: <%= wynajem %></p>
+      <p>Regulacja: <%= regulacja %></p>
+
+      <br />
+
+      <h2>Wypłata kierowcy: <%= wyplata %></h2>
+    </div>
+  </body>
+</html>
