@@ -26,10 +26,12 @@ db.once("open", () => {
 
 const authRoutes = require("./routes/authRoutes");
 const reportRoutes = require("./routes/reportRoutes");
+const mailRoutes = require("./routes/mailRoutes");
 //const authMiddleware = require("./middleware/authMiddleware");
 
 app.use("/api/auth", authRoutes);
 app.use("/", reportRoutes);
+app.use("/", mailRoutes);
 
 server.listen(process.env.PORT || 5001, () => {
   console.log(`Server is running on port ${process.env.PORT || 5001}`);
